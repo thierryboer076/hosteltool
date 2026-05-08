@@ -1,0 +1,16 @@
+services:
+
+  hosteltool-nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/app
+      - ./conf/hosteltool.conf:/etc/nginx/conf.d/hosteltool.conf
+    links:
+      - hosteltool-php
+
+  hosteltool-php:
+    image: php:7-fpm
+    volumes:
+      - ./app:/app
