@@ -1,12 +1,14 @@
 services:
 
   hosteltool-nginx:
-    image: nginx:latest
+    build:
+      context: .
+      dockerfile: ./build/hosteltool-nginx.Dockerfile
     ports:
       - "8080:80"
     volumes:
       - ./app:/app
-      - ./conf/hosteltool.conf:/etc/nginx/conf.d/hosteltool.conf
+      #- ./data/nginx/default.conf:/etc/nginx/conf.d/default.conf
     links:
       - hosteltool-php
 
