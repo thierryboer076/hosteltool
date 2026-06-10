@@ -19,7 +19,7 @@ COPY ./docker/data/nginx/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 
 # PHP setup
-COPY ./docker/data/php-fpm/www.conf /etc/php-fpm.d/www.conf
+COPY ./docker/data/php-fpm/www.conf /etc/php/php-fpm.d/www.conf
 
 # Finally, our code
 VOLUME /app
